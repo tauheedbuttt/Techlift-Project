@@ -1,3 +1,4 @@
+/* Previous Assignment */
 .table-page {
   height: 100vh;
   background: linear-gradient(90deg, #a781ff8f, #f5d0ff, #ffc5c5);
@@ -29,26 +30,7 @@
   --navbar-page-color: ##242A31;
 }
 
-main {}
-
-.body {
-  height: 100vh;
-}
-
-#overlay {
-  position: fixed;
-  display: none;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 2;
-}
-
-
+/* Last Assignment */
 /* Auth */
 .auth-title {
   /* font-family: 'Roboto'; */
@@ -116,39 +98,4 @@ link {
   border-top-style: solid;
   border-width: 1px;
   border-color: var(--border-color);
-}
-
-/* Navbar */
-.navbar-container {
-  background: #FFFFFF;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.07);
-}
-
-.navbar-title {
-  font-style: normal;
-  font-weight: 500;
-  font-size: 24px;
-
-  color: var(--navbar-title-color);
-}
-
-.navbar-pages {
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  color: var(--navbar-page-color);
-  text-decoration: none;
-}
-
-.navbar-selected {
-  color: var(--navbar-title-color);
-  border-bottom-style: solid;
-  border-color: var(--navbar-title-color);
-}
-
-.navbar-profile {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  cursor: pointer;
 }
