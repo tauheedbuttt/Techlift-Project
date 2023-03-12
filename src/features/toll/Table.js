@@ -21,7 +21,7 @@ const Table = ({ onEdit }) => {
     }, [])
 
     return (
-        <div className='col-lg-8 col-md-12'>
+        <div className='col-lg-8 col-md-12 col-sm-12'>
             {/* Search */}
             <Search
                 search={search}
@@ -29,7 +29,7 @@ const Table = ({ onEdit }) => {
                 onSearch={() => fetchTolls({ numberPlate: search })}
             />
             {/* Table */}
-            <table className='table table-striped border'>
+            <table className='table table-striped border col-sm-12'>
                 <thead>
                     <tr className='table-success' >{labels.map((label, index) => (
                         <th key={index}>{label}</th>
