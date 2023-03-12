@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 
 import useToll from '../../hooks/useToll'
@@ -8,6 +8,8 @@ import Loader from '../../components/Loader';
 const Table = ({ onEdit }) => {
     const { tolls } = useSelector(state => state.toll);
     const { tollLoading, fetchTolls, onDeleteToll } = useToll();
+
+    const [search, setSearch] = useState('');
 
     const labels = ['ID', 'Number Plate', 'Entry Point', 'Exit Point', 'Distance', 'Day', 'Cost (PKR)', 'Action']
 
@@ -43,6 +45,15 @@ const Table = ({ onEdit }) => {
 
     return (
         <div className='col-lg-8 col-md-12'>
+            <div className='d-flex gap-2 mb-2'>
+                <input
+                    value={search}
+                    className='form-control'
+                    placeholder='Enter Number Plate'
+                    onChange={(e) => setSearch(e.target.value)}
+                />
+                <button className='btn btn-success' onClick={() => fetchTolls({ numberPlate: search })}>Search</button>
+            </div>
             <table className='table table-striped border'>
                 <thead>
                     <tr className='table-success' >{labels.map((label, index) => (
