@@ -3,12 +3,14 @@ import React, { useState } from 'react'
 import Header from './Header';
 import Table from './Table';
 import Form from '../../components/Form';
+import useToll from '../../hooks/useToll';
+import SubmitButton from '../../components/SubmitButton';
 
 const Toll = () => {
     const [data, setData] = useState({
         numberPlate: '',
         entryPoint: '',
-        day: ''
+        day: new Date()
     });
 
     const fields = [
@@ -27,13 +29,15 @@ const Toll = () => {
             type: 'text'
         },
         {
-            value: data.day,
-            setValue: (value) => setData({ ...data, day: value }),
+            value: data.day.toISOString().split('T')[0],
+            setValue: (value) => setData({ ...data, day: new Date(value) }),
             label: 'Daye',
             placeholder: 'DD/MM/YYYY',
-            type: 'text'
+            type: 'date'
         },
-    ]
+    ];
+
+    const { onNewToll, tollAddLoading } = useToll();
 
     return (
         <div className='p-5'>
@@ -44,7 +48,12 @@ const Toll = () => {
                 </div>
                 <div className='col-lg-4 p-5 bg-white shadow'>
                     <Form fields={fields} />
-                    <button className='btn btn-success w-100'>Add New Entry</button>
+                    <SubmitButton
+                        title={'New Entry'}
+                        color={'primary w-100'}
+                        loading={tollAddLoading}
+                        onClick={() => onNewToll(data).then(() => setData({ numberPlate: '', entryPoint: '', day: new Date() }))}
+                    />
                 </div>
             </div>
         </div>

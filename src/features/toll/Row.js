@@ -48,7 +48,7 @@ const Row = ({ toll, onEdit, onDelete }) => {
                         onClick={() => onEdit(toll)}
                         style={{ cursor: 'pointer' }}
                     >
-                        <i class="bi bi-pencil"></i>
+                        <i className="bi bi-pencil"></i>
                     </a>
                     <a
                         title="Delete"

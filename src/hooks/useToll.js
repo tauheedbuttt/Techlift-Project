@@ -7,6 +7,7 @@ import api from '../app/api';
 export default () => {
     const dispatch = useDispatch();
     const [tollLoading, setTollLoading] = useState();
+    const [tollAddLoading, setTollAddLoading] = useState();
 
     const fetchTolls = async (query) => {
         setTollLoading(true);
@@ -32,10 +33,25 @@ export default () => {
         }
     }
 
+    const onNewToll = async (data) => {
+        setTollAddLoading(true);
+        try {
+            const response = await api.post(`/entry`, { ...data, day: data.day?.getTime() });
+            dispatch(addToll(response.data))
+            setTollAddLoading(false);
+        } catch (err) {
+            const message = err.response ? err.response.data.message : err;
+            setTollAddLoading(false);
+            alert(message);
+        }
+    }
+
 
     return {
+        tollAddLoading,
         tollLoading,
         fetchTolls,
-        onDeleteToll
+        onDeleteToll,
+        onNewToll
     }
 }

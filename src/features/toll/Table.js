@@ -37,13 +37,14 @@ const Table = ({ onEdit }) => {
                 </thead>
                 <tbody>
                     <Loader loading={tollLoading} color={'green'}>
-                        {tolls?.map((toll, index) => (
-                            <Row
-                                key={index}
-                                toll={toll}
-                                onDelete={onDeleteToll}
-                            />
-                        ))}
+                        {tolls
+                            .map((toll, index) => (
+                                <Row
+                                    key={index}
+                                    toll={toll}
+                                    onDelete={onDeleteToll}
+                                />
+                            ))}
                     </Loader>
                 </tbody>
             </table>
