@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { login, logout } from '../features/auth/slice';
@@ -9,7 +9,6 @@ export default () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState();
-  const { token } = useSelector(state => state.auth);
 
   const onLogin = async (email, password) => {
     setLoading(true);
