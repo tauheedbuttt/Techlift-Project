@@ -2,7 +2,7 @@ import React from 'react'
 
 const SearchBar = ({ search, setSearch, stock, setStock }) => {
     return (
-        <div className='p-2 bg-white rounded-3 shadow-sm ps-3 pe-3'>
+        <div className='p-2 bg-white rounded-3 shadow ps-3 pe-3'>
             <input
                 className='form-control'
                 value={search}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './App.css';
 import { data } from './config/constants';
 
 import SearchBar from './components/SearchBar';
@@ -16,7 +17,7 @@ const App = () => {
   ));
 
   return (
-    <div className='container d-flex flex-column pt-5 pb-5 gap-5'>
+    <div className='table-page d-flex flex-column justify-content-center pt-5 pb-5 ps-5 pe-5 gap-5'>
       <SearchBar search={search} setSearch={setSearch} stock={stock} setStock={setStock} />
       <Table labels={labels} data={filtered} />
     </div>

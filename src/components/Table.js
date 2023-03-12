@@ -6,7 +6,7 @@ const Table = ({ labels, data }) => {
     const categories = Array.from(new Set(data.map(item => item.category)));
     return (
         <div>
-            <div className='d-flex flex-column rounded shadow bg-white p-4'>
+            <div className='d-flex flex-column rounded shadow-lg bg-white p-4'>
                 <Labels labels={labels} />
                 {
                     categories?.map((category, index) => (
