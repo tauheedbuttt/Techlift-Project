@@ -1,27 +1,36 @@
-import React, { useState } from 'react'
-import './App.css';
-import { data } from './config/constants';
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-import SearchBar from './components/SearchBar';
-import Table from './components/Table'
+import { publicRoutes, protectedRoutes } from "./config/routes";
+import NoPage from "./components/NoPage";
+import './App.css'
 
-const App = () => {
-  // States
-  const [search, setSearch] = useState('');
-  const [stock, setStock] = useState(false);
+const Redirect = ({ element }) => {
+  const { token } = useSelector((state) => state.auth);
+  return !token ? <Navigate to={"/login"} /> : element;
+};
 
-  // Constatns
-  const labels = ['Name', 'Price'];
-  const filtered = data?.filter((item) => (
-    item.name.toLowerCase().includes(search.toLowerCase()) && (stock ? item.stocked : true)
-  ));
-
+function App() {
   return (
-    <div className='table-page d-flex flex-column justify-content-center pt-5 pb-5 ps-5 pe-5 gap-5'>
-      <SearchBar search={search} setSearch={setSearch} stock={stock} setStock={setStock} />
-      <Table labels={labels} data={filtered} />
-    </div>
-  )
+    <Routes>
+      {publicRoutes?.map((route, index) => (
+        <Route key={index} {...route} />
+      ))}
+      {protectedRoutes?.map((route, index) => (
+        <Route
+          key={index}
+          {...route}
+          element={<Redirect {...route} />}
+        />
+      ))}
+
+      <Route
+        path="/"
+        element={<Redirect element={<Navigate to="/home" />} />}
+      />
+      <Route path="*" element={<NoPage />} />
+    </Routes>
+  );
 }
 
-export default App
+export default App;
