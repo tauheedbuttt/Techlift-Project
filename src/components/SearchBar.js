@@ -1,12 +1,12 @@
 import React from 'react'
 
-const SearchBar = ({ value, setValue }) => {
+const SearchBar = ({ search, setSearch, stock, setStock }) => {
     return (
         <div>
             <input
                 className='form-control'
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
                 type={'text'}
                 placeholder={'Search...'}
             />
@@ -14,6 +14,8 @@ const SearchBar = ({ value, setValue }) => {
                 <input
                     className='form-check-input mt-0'
                     type={'checkbox'}
+                    value={stock}
+                    onChange={() => setStock(!stock)}
                 />
                 <span className='text-success'>Only Show Products in Stock</span>
             </div>
