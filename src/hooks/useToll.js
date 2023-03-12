@@ -50,7 +50,7 @@ export default () => {
         setTollAddLoading(true);
         try {
             const response = await api.put(`/exit/${data._id}`, data);
-            dispatch(updateToll(data))
+            dispatch(updateToll(response.data))
             setTollAddLoading(false);
         } catch (err) {
             const message = err.response ? err.response.data.message : err;
