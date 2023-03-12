@@ -66,7 +66,7 @@ const Signup = () => {
         <div className='form-container' style={{ marginLeft: 115 }}>
           {/* Title */}
           <h1 className='auth-title'>Create Account</h1>
-          <p className='auth-subtitle'>Sign up to use Jumbo AI</p>
+          <p className='auth-subtitle'>Sign up to use Toll Tracker</p>
           {/* Form */}
           <div><Form fields={fields} /></div>
           {/* Terms */}

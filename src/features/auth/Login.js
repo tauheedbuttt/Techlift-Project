@@ -45,7 +45,7 @@ const Login = () => {
         <div className='form-container' style={{ marginLeft: 115 }}>
           {/* Title */}
           <h1 className='auth-title'>Hi, Welcome</h1>
-          <p className='auth-subtitle'>Sign in to use Jumbo AI</p>
+          <p className='auth-subtitle'>Sign in to use Toll Tracker</p>
           {/* Form */}
           <div><Form fields={fields} /></div>
           {/* Submit */}
