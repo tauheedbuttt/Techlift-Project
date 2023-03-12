@@ -2,7 +2,9 @@ import React from 'react'
 
 const Toll = () => {
     return (
-        <div>Toll</div>
+        <div>
+
+        </div>
     )
 }
 
