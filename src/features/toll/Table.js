@@ -43,6 +43,7 @@ const Table = ({ onEdit }) => {
                                     key={index}
                                     toll={toll}
                                     onDelete={onDeleteToll}
+                                    onEdit={onEdit}
                                 />
                             ))}
                     </Loader>

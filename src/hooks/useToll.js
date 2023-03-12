@@ -46,12 +46,26 @@ export default () => {
         }
     }
 
+    const onExitToll = async (data) => {
+        setTollAddLoading(true);
+        try {
+            const response = await api.put(`/exit/${data._id}`, data);
+            dispatch(updateToll(data))
+            setTollAddLoading(false);
+        } catch (err) {
+            const message = err.response ? err.response.data.message : err;
+            setTollAddLoading(false);
+            alert(message);
+        }
+    }
+
 
     return {
         tollAddLoading,
         tollLoading,
         fetchTolls,
         onDeleteToll,
-        onNewToll
+        onNewToll,
+        onExitToll
     }
 }
