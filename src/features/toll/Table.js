@@ -5,11 +5,11 @@ import useToll from '../../hooks/useToll'
 
 import Loader from '../../components/Loader';
 
-const Table = () => {
+const Table = ({ onEdit }) => {
     const { tolls } = useSelector(state => state.toll);
-    const { tollLoading, fetchTolls } = useToll();
+    const { tollLoading, fetchTolls, onDeleteToll } = useToll();
 
-    const labels = ['ID', 'Number Plate', 'Entry Point', 'Exit Point', 'Distance', 'Day', 'Cost (PKR)']
+    const labels = ['ID', 'Number Plate', 'Entry Point', 'Exit Point', 'Distance', 'Day', 'Cost (PKR)', 'Action']
 
     useEffect(() => {
         fetchTolls({});
@@ -64,6 +64,26 @@ const Table = () => {
                                     month: 'short'
                                 })}</td>
                                 <td>{toll.cost}</td>
+                                <td>
+                                    <div className="table-actions d-flex align-items-center gap-3 fs-6">
+                                        <a
+                                            title="View Company Profile"
+                                            className="text-primary"
+                                            onClick={() => onEdit(toll)}
+                                            style={{ cursor: 'pointer' }}
+                                        >
+                                            <i class="bi bi-pencil"></i>
+                                        </a>
+                                        <a
+                                            title="Delete"
+                                            className="text-danger"
+                                            onClick={() => onDeleteToll(toll)}
+                                            style={{ cursor: 'pointer' }}
+                                        >
+                                            <i className="bi bi-trash-fill"></i>
+                                        </a>
+                                    </div>
+                                </td>
                             </tr>
                         ))}
                     </Loader>

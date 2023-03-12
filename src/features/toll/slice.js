@@ -10,10 +10,10 @@ const tollSlice = createSlice({
             state.tolls = action.payload;
         },
         deleteToll: (state, action) => {
-            state.tolls = state.tolls.filer(item => item.id != action.payload.id);
+            state.tolls = state.tolls.filter(item => item._id != action.payload._id);
         },
         updateToll: (state, action) => {
-            state.tolls = state.tolls.map(item => item.id == action.payload.id ? action.payload : item);
+            state.tolls = state.tolls.map(item => item._id == action.payload._id ? action.payload : item);
         },
         addToll: (state, action) => {
             state.tolls = [...state.tolls, action.payload];

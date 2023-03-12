@@ -22,9 +22,20 @@ export default () => {
         }
     }
 
+    const onDeleteToll = async (toll) => {
+        try {
+            await api.delete(`/tolls/${toll._id}`);
+            dispatch(deleteToll(toll))
+        } catch (err) {
+            const message = err.response ? err.response.data.message : err;
+            alert(message);
+        }
+    }
+
 
     return {
         tollLoading,
-        fetchTolls
+        fetchTolls,
+        onDeleteToll
     }
 }
