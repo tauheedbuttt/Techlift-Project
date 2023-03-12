@@ -45,6 +45,7 @@ const Table = ({ onEdit }) => {
 
     return (
         <div className='col-lg-8 col-md-12'>
+            {/* Search */}
             <div className='d-flex gap-2 mb-2'>
                 <input
                     value={search}
@@ -54,6 +55,7 @@ const Table = ({ onEdit }) => {
                 />
                 <button className='btn btn-success' onClick={() => fetchTolls({ numberPlate: search })}>Search</button>
             </div>
+            {/* Table */}
             <table className='table table-striped border'>
                 <thead>
                     <tr className='table-success' >{labels.map((label, index) => (
