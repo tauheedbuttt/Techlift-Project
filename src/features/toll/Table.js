@@ -21,7 +21,7 @@ const Table = ({ onEdit }) => {
     }, [])
 
     return (
-        <div className='col-lg-8 col-md-12 col-sm-12'>
+        <div>
             {/* Search */}
             <Search
                 search={search}
