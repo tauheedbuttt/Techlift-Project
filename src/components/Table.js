@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { data } from '../config/constants';
 import Labels from './Labels';
+import Products from './Products';
 
 import SearchBar from './SearchBar';
 
@@ -10,11 +11,11 @@ const Table = () => {
     const labels = ['Name', 'Price'];
 
     const filtered = data?.filter((item) => (
-        item.name.toLowerCase().includes(search.toLowerCase()) &&
-            stock ? item.stocked : true
+        item.name.toLowerCase().includes(search.toLowerCase()) && (stock ? item.stocked : true)
     ));
 
-    const categories = new Set(filtered.map(item => item.category));
+    const categories = Array.from(new Set(filtered.map(item => item.category)));
+    console.log(search.toLowerCase())
 
     return (
         <div>
@@ -24,7 +25,18 @@ const Table = () => {
                 stock={stock}
                 setStock={setStock}
             />
-            <Labels labels={labels} />
+            <div className='d-flex flex-column rounded shadow bg-white p-2 mt-5'>
+                <Labels labels={labels} />
+                {
+                    categories?.map((category, index) => (
+                        <Products
+                            key={index}
+                            title={category}
+                            data={filtered?.filter(item => item.category == category)}
+                        />
+                    ))
+                }
+            </div>
         </div>
     )
 }
