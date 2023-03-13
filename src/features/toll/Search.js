@@ -1,6 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Search = ({ search, setSearch, onSearch }) => {
+    const [isSearched, setIsSearched] = useState(false);
+
+    useEffect(()=>{
+        if(!search && isSearched) onReset();
+    },[search]);
+
+    const onReset = () => {
+        setSearch('');
+        onSearch('');
+        setIsSearched(false)
+    }
+
     return (
         <div className='d-flex gap-2 mb-2'>
             <input
@@ -10,7 +22,11 @@ const Search = ({ search, setSearch, onSearch }) => {
                 onChange={(e) => setSearch(e.target.value)}
                 onSubmit={onSearch}
             />
-            <button className='btn btn-success' onClick={onSearch}>Search</button>
+            {isSearched ? <button className='btn btn-outline-success' onClick={onReset}>Clear</button> : null}
+            <button className='btn btn-success' onClick={()=>{
+                onSearch(search);
+                setIsSearched(true);
+            }}>Search</button>
         </div>
     )
 }

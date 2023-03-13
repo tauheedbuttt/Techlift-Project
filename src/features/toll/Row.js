@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Row = ({ toll, onEdit, onDelete }) => {
+const Row = ({ index, toll, onEdit, onDelete }) => {
     const onCopy = (text) => {
         // Create a temporary element to hold the text to copy
         const tempElement = document.createElement('textarea');
@@ -29,6 +29,7 @@ const Row = ({ toll, onEdit, onDelete }) => {
 
     return (
         <tr>
+            <th>{index}</th>
             <td onClick={() => onCopy(toll._id)}>...{toll._id.substr(toll._id.length - 5)}</td>
             <td>{toll.numberPlate}</td>
             <td>{toll.entryPoint}</td>
