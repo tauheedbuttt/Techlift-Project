@@ -6,7 +6,7 @@ const Form = ({fields}) => {
       {
         fields?.map((item,index)=>{
           return item.data ? (
-            <div key={index} className='d-flex w-100 gap-2'>
+            <div key={index} className='d-flex  gap-2'>
               {
                 item.data.map((field, idx)=>{
                   return (

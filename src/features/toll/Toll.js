@@ -61,18 +61,20 @@ const Toll = () => {
     return (
         <div className='p-5'>
             <Header />
-            <div className='container-fluid d-flex justify-content-between mt-5 gap-4'>
-                <div className='col-lg-8 col-md-12 col-sm-12 p-5 shadow'>
-                    <Table onEdit={(item) => setData({ ...item, day: new Date(item.day) })} />
-                </div>
-                <div className='col-lg-4 p-5 bg-white shadow'>
-                    <Form fields={fields} />
-                    <SubmitButton
-                        title={isUpdate ? 'Mark Exit' : 'New Entry'}
-                        color={'primary w-100'}
-                        loading={tollAddLoading}
-                        onClick={() => (!isUpdate ? onNewToll(data) : onExitToll(data)).then(() => setData({ numberPlate: '', entryPoint: '', day: new Date() }))}
-                    />
+            <div>
+                <div className='row mt-5 justify-content-around'>
+                    <div className='col-12 col-lg-4 col-xl-4 p-5 rounded bg-white border'>
+                        <Form fields={fields} />
+                        <SubmitButton
+                            title={isUpdate ? 'Mark Exit' : 'New Entry'}
+                            color={'primary w-100'}
+                            loading={tollAddLoading}
+                            onClick={() => (!isUpdate ? onNewToll(data) : onExitToll(data)).then(() => setData({ numberPlate: '', entryPoint: '', day: new Date() }))}
+                        />
+                    </div>
+                    <div className='col-12 col-lg-8 col-xl-8 p-5 rounded border'>
+                        <Table onEdit={(item) => setData({ ...item, day: new Date(item.day) })} />
+                    </div>
                 </div>
             </div>
         </div>
