@@ -59,11 +59,11 @@ const Signup = () => {
 
   return (
     <div className='d-flex flex-row' style={{ height: '100vh' }}>
-      <div className='d-flex' style={{ flex: 1 }}>
-        <img src={auth} style={{ width: '100%', objectFit: 'cover' }} />
+      <div className='auth-image col-lg-4'>
+        <img src={auth} style={{ width: '100%', objectFit: 'cover', height:'100vh'}} />
       </div>
-      <div className='d-flex flex-col align-items-center' style={{ flex: 2 }}>
-        <div className='form-container' style={{ marginLeft: 115 }}>
+      <div className='col-lg-8 col-md-12 d-flex flex-col justify-content-center align-items-center ' style={{height: '100vh'}}>
+        <div className='form-container ms-5 me-5'>
           {/* Title */}
           <h1 className='auth-title'>Create Account</h1>
           <p className='auth-subtitle'>Sign up to use Toll Tracker</p>
