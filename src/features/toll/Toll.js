@@ -61,9 +61,9 @@ const Toll = () => {
     return (
         <div className='p-5'>
             <Header />
-            <div>
-                <div className='row mt-5 justify-content-around'>
-                    <div className='col-12 col-lg-4 col-xl-4 p-5 rounded bg-white border'>
+            <div className='container-fluid'>
+                <div className='row mt-5 d-flex justify-content-between'>
+                    <div className='col-12 col-lg-4 col-xl-4 p-5 rounded bg-white shadow' style={{height: 'max-content'}}>
                         <Form fields={fields} />
                         <SubmitButton
                             title={isUpdate ? 'Mark Exit' : 'New Entry'}
@@ -72,7 +72,7 @@ const Toll = () => {
                             onClick={() => (!isUpdate ? onNewToll(data) : onExitToll(data)).then(() => setData({ numberPlate: '', entryPoint: '', day: new Date() }))}
                         />
                     </div>
-                    <div className='col-12 col-lg-8 col-xl-8 p-5 rounded border'>
+                    <div className='col-12 col-lg-7 col-xl-7 p-5 rounded shadow'>
                         <Table onEdit={(item) => setData({ ...item, day: new Date(item.day) })} />
                     </div>
                 </div>
