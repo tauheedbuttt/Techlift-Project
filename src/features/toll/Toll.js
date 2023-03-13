@@ -72,8 +72,16 @@ const Toll = () => {
                             loading={tollAddLoading}
                             onClick={() => (!isUpdate ? onNewToll(data) : onExitToll(data)).then(() => setData({ numberPlate: '', entryPoint: '', day: new Date() }))}
                         />
+                        {
+                            !isUpdate ? null : 
+                            <SubmitButton
+                                title={'Cancel'}
+                                color={'outline-primary w-100 mt-2'}
+                                onClick={() => setData({ numberPlate: '', entryPoint: '', day: new Date(), _id: undefined })}
+                            />
+                        }
                     </div>
-                    <div className='col-12 col-lg-7 col-xl-7 p-5 rounded shadow'>
+                    <div className='col-12 col-lg-7 col-xl-7 p-3 rounded shadow' style={{height: 'max-content'}}>
                         <Table onEdit={(item) => {
                             ref.current?.scrollIntoView();
                             setData({ ...item, day: new Date(item.day) })
