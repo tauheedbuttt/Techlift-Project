@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 
-const Pagination = ({data, loadData, limit}) => {
-  const [page, setPage] = useState(1);
+const Pagination = ({data, loadData, limit, page, setPage}) => {
 
   const onNextPage = () => {
     if(data?.length < limit) return;

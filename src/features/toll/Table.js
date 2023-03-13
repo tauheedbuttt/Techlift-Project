@@ -14,9 +14,10 @@ const Table = ({ onEdit }) => {
     const { tollLoading, fetchTolls, onDeleteToll } = useToll();
 
     const [search, setSearch] = useState('');
+    const [page, setPage] = useState(1);
+    const limit = 10;
 
     const labels = ['#', 'ID', 'Number Plate', 'Entry Point', 'Exit Point', 'Distance', 'Day', 'Cost (PKR)', 'Action'];
-    const limit = 10;
 
     useEffect(() => {
         fetchTolls({});
@@ -28,7 +29,10 @@ const Table = ({ onEdit }) => {
             <Search
                 search={search}
                 setSearch={setSearch}
-                onSearch={(value) => fetchTolls({ numberPlate: value })}
+                onSearch={(value) => {
+                    setPage(1);
+                    fetchTolls({ numberPlate: value });
+                }}
             />
             {/* Table */}
             <div className='table-responsive h-100'>
@@ -49,7 +53,7 @@ const Table = ({ onEdit }) => {
                                     .map((toll, index) => index >= limit ? null : (
                                         <Row
                                             key={index}
-                                            index={index+1}
+                                            index={((page-1) * limit) + (index+1)}
                                             toll={toll}
                                             onDelete={onDeleteToll}
                                             onEdit={onEdit}
@@ -63,6 +67,8 @@ const Table = ({ onEdit }) => {
                     data={tolls}
                     loadData={(page) => fetchTolls({page, limit, numberPlate: search})}
                     limit={limit}
+                    page={page}
+                    setPage={setPage}
                 />
             </div>
         </div>

@@ -81,7 +81,7 @@ const Toll = () => {
                             />
                         }
                     </div>
-                    <div className='col-12 col-lg-8 col-xl-8 p-3 pt-0 rounded' style={{height: 'max-content'}}>
+                    <div className='col-12 col-lg-8 col-xl-8 p-3 rounded' style={{height: 'max-content'}}>
                         <Table onEdit={(item) => {
                             ref.current?.scrollIntoView();
                             setData({ ...item, day: new Date(item.day) })
