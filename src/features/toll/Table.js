@@ -5,7 +5,6 @@ import useToll from '../../hooks/useToll'
 
 import Loader from '../../components/Loader';
 import Search from './Search';
-import Toll from './Toll';
 import Row from './Row';
 import Pagination from './Pagination';
 
