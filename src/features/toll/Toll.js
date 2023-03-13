@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 
 import Header from './Header';
 import Table from './Table';
@@ -57,13 +57,14 @@ const Toll = () => {
     ].filter(item => item);
 
     const { onNewToll, onExitToll, tollAddLoading } = useToll();
+    const ref = useRef();
 
     return (
         <div className='p-5'>
             <Header />
             <div className='container-fluid'>
                 <div className='row mt-5 d-flex justify-content-between'>
-                    <div className='col-12 col-lg-4 col-xl-4 p-5 rounded bg-white shadow' style={{height: 'max-content'}}>
+                    <div ref={ref} className='col-12 col-lg-4 col-xl-4 p-5 mb-5 rounded bg-white shadow' style={{height: 'max-content'}}>
                         <Form fields={fields} />
                         <SubmitButton
                             title={isUpdate ? 'Mark Exit' : 'New Entry'}
@@ -73,7 +74,10 @@ const Toll = () => {
                         />
                     </div>
                     <div className='col-12 col-lg-7 col-xl-7 p-5 rounded shadow'>
-                        <Table onEdit={(item) => setData({ ...item, day: new Date(item.day) })} />
+                        <Table onEdit={(item) => {
+                            ref.current?.scrollIntoView();
+                            setData({ ...item, day: new Date(item.day) })
+                        }} />
                     </div>
                 </div>
             </div>
