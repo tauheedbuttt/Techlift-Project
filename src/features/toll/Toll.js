@@ -60,9 +60,9 @@ const Toll = () => {
     const ref = useRef();
 
     return (
-        <div className='p-5'>
+        <div className='p-2'>
             <Header />
-            <div className='container-fluid'>
+            <div className='p-3'>
                 <div className='row mt-5 d-flex justify-content-between'>
                     <div ref={ref} className='col-12 col-lg-4 col-xl-4 p-5 mb-5 rounded bg-white shadow' style={{height: 'max-content'}}>
                         <Form fields={fields} />
