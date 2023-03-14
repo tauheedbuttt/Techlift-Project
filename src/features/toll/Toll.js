@@ -63,8 +63,8 @@ const Toll = () => {
         <div className='p-2'>
             <Header />
             <div className='p-3 mt-5'>
-                <div className='row d-flex justify-content-between'>
-                    <div ref={ref} className='col-12 col-lg-4 col-xl-4 p-5  mb-5 rounded bg-white shadow-sm' style={{height: 'max-content'}}>
+                <div className='row d-flex justify-content-center gap-5'>
+                    <div ref={ref} className='col-12 col-lg-4 col-xl-4 p-5 bg-white rounded shadow' style={{height: 'max-content'}}>
                         <Form fields={fields} />
                         <SubmitButton
                             title={isUpdate ? 'Mark Exit' : 'New Entry'}
@@ -81,7 +81,7 @@ const Toll = () => {
                             />
                         }
                     </div>
-                    <div className='col-12 col-lg-8 col-xl-8 p-3 rounded' style={{height: 'max-content'}}>
+                    <div className='col-12 col-lg-7 col-xl-7 p-3 bg-white rounded shadow' style={{height: 'max-content'}}>
                         <Table onEdit={(item) => {
                             ref.current?.scrollIntoView();
                             setData({ ...item, day: new Date(item.day) })
