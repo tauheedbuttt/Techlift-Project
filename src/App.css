@@ -8,6 +8,11 @@
   --navbar-page-color: ##242A31;
 }
 
+@media screen and (max-width: 990px) {
+  .page-title{
+    display: none;
+  }
+}
 /* Auth */
 @media screen and (max-width: 990px) {
   .auth-image{
