@@ -6,15 +6,10 @@ const bodyParser = require('body-parser')
 
 // models
 require('./backend/src/models/User')
-require('./backend/src/models/Post')
-require('./backend/src/models/Comment')
 require('./backend/src/models/Toll')
 
 // routes
 const authRoutes = require('./backend/src/routes/authRoutes');
-const userRoutes = require('./backend/src/routes/userRoutes');
-const postRoutes = require('./backend/src/routes/postRoutes');
-const commentRoutes = require('./backend/src/routes/commentRoutes');
 const tollRoutes = require('./backend/src/routes/tollRoutes');
 
 const app = express()
@@ -46,9 +41,6 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use('/api', authRoutes)
 app.use('/api', tollRoutes)
-// app.use(userRoutes)
-// app.use(postRoutes)
-// app.use(commentRoutes)
 
 app.get('/', (req, res) => res.send('Home'))
 
