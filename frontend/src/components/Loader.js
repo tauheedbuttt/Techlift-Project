@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Loader = ({ loading, children, overlay, color }) => {
+const Loader = ({ loading, children, color, row }) => {
   return !loading ? children : (
-    <tr style={{ columnSpan: 999 }} className={'w-100 border border-2 text-center h-100'}>
-      <td colspan="99" >
+    <tr className={row ? 'text-center' : 'd-flex justify-content-center'}>
+      <td colSpan={99}>
         <span
           className={`spinner-border spinner-border-sm`}
           role="status"

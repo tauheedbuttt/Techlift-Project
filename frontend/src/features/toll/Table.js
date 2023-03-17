@@ -43,7 +43,7 @@ const Table = ({ onEdit }) => {
                             ))}</tr>
                         </thead>
                         <tbody>
-                            <Loader loading={tollLoading} color={'green'}>
+                            <Loader loading={tollLoading} color={'green'} row>
                                 {
                                     tolls?.length == 0
                                         ? <tr>
