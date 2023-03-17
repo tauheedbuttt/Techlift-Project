@@ -45,20 +45,20 @@ const Table = ({ onEdit }) => {
                         <tbody>
                             <Loader loading={tollLoading} color={'green'}>
                                 {
-                                    tolls?.length == 0 
-                                    ? <tr>
-                                        <td colspan={999} style={{textAlign: 'center'}}>No Items</td>
-                                    </tr> 
-                                    : tolls
-                                        .map((toll, index) => index >= limit ? null : (
-                                            <Row
-                                                key={index}
-                                                index={((page-1) * limit) + (index+1)}
-                                                toll={toll}
-                                                onDelete={onDeleteToll}
-                                                onEdit={onEdit}
-                                            />
-                                        ))
+                                    tolls?.length == 0
+                                        ? <tr>
+                                            <td colspan={999} style={{ textAlign: 'center' }}>No Items</td>
+                                        </tr>
+                                        : tolls
+                                            .map((toll, index) => index >= limit ? null : (
+                                                <Row
+                                                    key={index}
+                                                    index={((page - 1) * limit) + (index + 1)}
+                                                    toll={toll}
+                                                    onDelete={onDeleteToll}
+                                                    onEdit={onEdit}
+                                                />
+                                            ))
                                 }
                             </Loader>
                         </tbody>
@@ -66,7 +66,7 @@ const Table = ({ onEdit }) => {
                 </div>
                 <Pagination
                     data={tolls}
-                    loadData={(page) => fetchTolls({page, limit, numberPlate: search})}
+                    loadData={(page) => fetchTolls({ page, limit, numberPlate: search })}
                     limit={limit}
                     page={page}
                     setPage={setPage}

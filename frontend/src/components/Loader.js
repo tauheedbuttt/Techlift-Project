@@ -1,21 +1,17 @@
 import React from 'react'
 
-const Loader = ({loading, children, overlay, color, center}) => {
+const Loader = ({ loading, children, overlay, color }) => {
   return !loading ? children : (
-    <div>
-      {!overlay ? null : children}
-      <div 
-        className={!overlay && !center ? null : 'd-flex align-items-center justify-content-center'}
-        id = {!overlay ? null : 'overlay'}
-      >
-        <span 
-          className={`spinner-border spinner-border-sm`} 
-          role="status" 
+    <tr style={{ columnSpan: 999 }} className={'w-100 border border-2 text-center h-100'}>
+      <td colspan="99" >
+        <span
+          className={`spinner-border spinner-border-sm`}
+          role="status"
           aria-hidden="true"
-          style={!overlay ? {color} : {width: '8rem', height: '8rem', color: (color ? color : 'white')}}
+          style={{ color: (color ? color : 'white') }}
         />
-      </div>
-    </div>
+      </td>
+    </tr>
   )
 }
 
