@@ -13,14 +13,23 @@
   overflow-y: hidden;
 }
 
+body {
+  background: rgb(192, 192, 255);
+}
+
+.page-title {
+  color: rgb(105, 105, 139);
+}
+
 @media screen and (max-width: 990px) {
-  .page-title{
+  .page-title {
     display: none;
   }
 }
+
 /* Auth */
 @media screen and (max-width: 990px) {
-  .auth-image{
+  .auth-image {
     display: none;
   }
 }

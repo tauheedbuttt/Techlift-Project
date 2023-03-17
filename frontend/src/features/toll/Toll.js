@@ -60,11 +60,12 @@ const Toll = () => {
     const ref = useRef();
 
     return (
-        <div className='p-2'>
+        <div >
             <Header />
-            <div className='p-3 mt-5'>
+            {/* Body */}
+            <div className='p-4 mt-5'>
                 <div className='row d-flex justify-content-center gap-5'>
-                    <div ref={ref} className='col-12 col-lg-4 col-xl-4 bg-white p-5 rounded shadow' style={{height: 'max-content'}}>
+                    <div ref={ref} className='col-12 col-lg-4 col-xl-4 bg-white p-5 rounded shadow'>
                         <Form fields={fields} />
                         <SubmitButton
                             title={isUpdate ? 'Mark Exit' : 'New Entry'}
@@ -73,15 +74,15 @@ const Toll = () => {
                             onClick={() => (!isUpdate ? onNewToll(data) : onExitToll(data)).then(() => setData({ numberPlate: '', entryPoint: '', day: new Date() }))}
                         />
                         {
-                            !isUpdate ? null : 
-                            <SubmitButton
-                                title={'Cancel'}
-                                color={'outline-primary w-100 mt-2'}
-                                onClick={() => setData({ numberPlate: '', entryPoint: '', day: new Date(), _id: undefined })}
-                            />
+                            !isUpdate ? null :
+                                <SubmitButton
+                                    title={'Cancel'}
+                                    color={'outline-primary w-100 mt-2'}
+                                    onClick={() => setData({ numberPlate: '', entryPoint: '', day: new Date(), _id: undefined })}
+                                />
                         }
                     </div>
-                    <div className='col-12 col-lg-7 col-xl-7 bg-white p-3 rounded shadow' style={{height: 'max-content'}}>
+                    <div className='col-12 col-lg-7 col-xl-7 bg-white p-3 rounded shadow' style={{ height: 'max-content' }}>
                         <Table onEdit={(item) => {
                             ref.current?.scrollIntoView();
                             setData({ ...item, day: new Date(item.day) })
@@ -89,6 +90,12 @@ const Toll = () => {
                     </div>
                 </div>
             </div>
+            {/* Footer */}
+            <footer style={{ textAlign: 'center' }}>
+                <div>
+                    &copy; Copyright <strong><span>TollTracker</span></strong>. All Rights Reserved
+                </div>
+            </footer>
         </div>
     )
 }
