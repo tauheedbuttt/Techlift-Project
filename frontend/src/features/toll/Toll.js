@@ -60,7 +60,7 @@ const Toll = () => {
     const ref = useRef();
 
     return (
-        <div >
+        <div className='body'>
             <Header />
             {/* Body */}
             <div className='p-4 mt-5'>
@@ -91,10 +91,8 @@ const Toll = () => {
                 </div>
             </div>
             {/* Footer */}
-            <footer style={{ textAlign: 'center' }}>
-                <div>
-                    &copy; Copyright <strong><span>TollTracker</span></strong>. All Rights Reserved
-                </div>
+            <footer className='text-center'>
+                &copy; Copyright <strong><span>TollTracker</span></strong>. All Rights Reserved
             </footer>
         </div>
     )
